@@ -16,9 +16,10 @@ public class Solution {
         int start = 0;
         int end = nums.length-1;
 
-        
+        // start < end: loop end at start == end
+        // start +1 < end: loop end at start+1 == end -> avoid infinity loop
         while(start+1<end){
-
+            // end+start may greater than largest value in java
             int mid = (end-start)/2 + start;
 
             if(nums[mid]==target){
