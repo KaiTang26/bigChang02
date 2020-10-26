@@ -33,6 +33,12 @@ class Solution {
         return (int )sum%HASH_SIZE;
     }
 
+
+
+
+
+    
+
     public int hashCode(char[] key, int HASH_SIZE) {
         // write your code here
 
