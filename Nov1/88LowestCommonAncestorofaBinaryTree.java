@@ -1,6 +1,5 @@
 
-package com.company;
-import jdk.nashorn.internal.runtime.JSONListAdapter;
+
 import javax.swing.plaf.SliderUI;
 import java.util.*;
 public class Main {
@@ -39,6 +38,8 @@ public class Solution {
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B) {
         // write your code here
+
+        return helper(root, A, B).LCA;
     }
     public result helper (TreeNode node, TreeNode A, TreeNode B){
         if(node==null){
@@ -46,19 +47,39 @@ public class Solution {
         }
         result left = helper(node.left, A, B);
         result right = helper(node.right, A, B);
-        if(node == A){
-        }
-        if(left.hasA && left.hasB){
+        if(node == A && node == B){
+            return new result(true, true, node);
+        }else if(node == A && (left.hasB || right.hasB)){
+            return new result(true, true, node);
+        }else if(node == B && (left.hasA || right.hasA)){
+            return new result(true, true, node);
+        }else if(left.hasA && left.hasB){
             return left;
-        }
-        if(right.hasA && right.hasB){
+        }else if(right.hasA && right.hasB){
             return right;
-        }
-        if(right.hasB && left.hasA){
+        }else if(right.hasB && left.hasA){
             return new result(true, true, node);
-        }
-        if(left.hasB && right.hasA){
+        }else if(left.hasB && right.hasA){
             return new result(true, true, node);
+        }else if(node == A && node != B){
+            return new result(true, false);
+
+        }else if(node != A && node == B){
+            return new result(false, true);
+        }else if(node !=A || node !=B){
+
+            if(left.hasA || left.hasB){
+                return left;
+            }else if(right.hasA || right.hasB){
+                return right;
+            }
+
+            new result(false, false);
+            
+
         }
+            
+        return new result(false, false);
+       
     }
 }

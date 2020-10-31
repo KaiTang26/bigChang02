@@ -54,6 +54,8 @@ class DCSolution {
         // write your code here
         return helper(root).minNode;
     }
+
+    
     public result helper (TreeNode node){
         result newResult = new result(Integer.MAX_VALUE, 0);
         if(node==null){
@@ -61,6 +63,8 @@ class DCSolution {
         }
         result left = helper(node.left);
         result right = helper(node.right);
+
+
         if(left.minSum< right.minSum){
             newResult.minSum= left.minSum;
             newResult.minNode = left.minNode;
@@ -68,6 +72,9 @@ class DCSolution {
             newResult.minSum= right.minSum;
             newResult.minNode = right.minNode;
         }
+
+
+
         newResult.sum = left.sum+ right.sum+ node.val;
         if(newResult.sum< newResult.minSum){
             newResult.minSum = newResult.sum;
