@@ -36,7 +36,6 @@ public class Solution {
                     if(currentNode.right !=null){
                         queue.offer(currentNode.right);
                     }
-                }
             }
 
             if(leftFirst){
@@ -51,6 +50,8 @@ public class Solution {
                     int temp = level.get(start);
                     level.set(start, level.get(end));
                     level.set(end, temp);
+                    start++;
+                    end--;
                 }
 
                 results.add(level);
@@ -61,6 +62,11 @@ public class Solution {
 
             
         }
+
+            
+
+            
+        
 
 
         return results;
