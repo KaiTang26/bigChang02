@@ -15,8 +15,20 @@ public class Solution {
         while(start<end){
             int sum = nums[start]+nums[end];
 
+            if(start>0 && nums[start]==nums[start-1]){
+                start++;
+                continue;
+            }
+
+            if(end!=nums.length-1 && nums[end]==nums[end+1]){
+                end--;
+                continue;
+            }
+
             if(sum==target){
                 count++;
+                start++;
+                end--;
             }else if(sum>target){
                 end--;
 
