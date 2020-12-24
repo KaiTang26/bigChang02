@@ -6,34 +6,56 @@ public class Solution {
      */
     public int kthLargestElement(int n, int[] nums) {
         // write your code here
+
+        return quickSelect(nums, 0, nums.length-1, nums.length-n);
     }
 
 
-    private int quickSelect(int[] nums, int left, int right, int k){
+    private int quickSelect(int[] nums, int start, int end, int k){
 
-        int pivot = nums[left];
+        if(start>=end){
+            return nums[k];
+        }
 
-        int i=left;
-        int j = right;
+        int pivot = nums[start];
 
-        while(i<=j){
+        int left=start;
+        int right = end;
 
-            while(i<=j && nums[i]<pivot){
-                i++;
+        while(left<=right){
+
+
+            while(left<=right && nums[left]<pivot){
+                left++;
             }
 
-            while(i<=j && nums[j]>pivot){
-                j--;
+            while(left<=right && nums[right]>pivot){
+                right--;
             }
 
-            if(i<=j){
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-                i++;
-                j--;
+            if(left<=right){
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left++;
+                right--;
             }
         }
+
+        if(k<=right){
+            return quickSelect(nums, start, right, k);
+
+        }
+
+        if(k>=left){
+            return quickSelect(nums, left, end, k);
+        }
+
+        return nums[k];
+
+        
+
+        
 
         
     }
