@@ -33,9 +33,27 @@ public class Solution {
 
         }
 
-        int left = 0;
-        int right = A.length-1;
 
+        int left;
+        int right;
+
+
+        if(2*end==A.length){
+
+            left = 0;
+            right = A.length-1;
+
+        }else if(2*end<A.length){
+            left = 0;
+            right = 2*end;
+        }else{
+            left = A.length-end;
+            right = A.length-1;
+        }
+
+
+
+    
         while(left<right){
             if(left<right){
                 int temp = A[left];
