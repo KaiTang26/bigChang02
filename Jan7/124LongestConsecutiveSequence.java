@@ -1,4 +1,4 @@
-public class Solution {
+public class Solution_1 {
     /**
      * @param num: A list of integers
      * @return: An integer
@@ -26,5 +26,55 @@ public class Solution {
         }
         
         return ans;
+    }
+}
+
+
+public class Solution_2 {
+    /**
+     * @param num: A list of integers
+     * @return: An integer
+     */
+    public int longestConsecutive(int[] num) {
+        // write your code here
+
+        Set<Integer> set = new HashSet<Integer>();
+
+        for(int i: num){
+            set.add(i);
+        }
+
+        int count = 0;
+
+
+        for(int j:num){
+
+            if(set.contains(j)){
+                set.remove(j);
+
+                int down = j-1;
+                int up = j+1;
+
+                while(set.contains(down)){
+                    set.remove(down);
+                    down--;
+                }
+
+                while(set.contains(up)){
+                    set.remove(up);
+                    up++;
+                }
+
+
+                count = Math.max(count, up-down-1);
+
+
+
+            }
+
+
+        }
+
+        return count;
     }
 }
