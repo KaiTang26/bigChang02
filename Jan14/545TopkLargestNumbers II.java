@@ -23,7 +23,6 @@ public class Solution {
         // write your code here
         this.queue.offer(num);
         return;
-        
     }
 
     /*
@@ -32,20 +31,13 @@ public class Solution {
     public List<Integer> topk() {
         // write your code here
         List<Integer> list = new ArrayList<Integer>();
-
-
         int n = this.queue.size()<this.k? this.queue.size(): this.k;
-
         for(int i=0; i<n; i++){
             list.add(this.queue.poll());
         }
-
         for(int num:list){
             this.queue.offer(num);
         }
-
-       
-
         return list;
     }
 }

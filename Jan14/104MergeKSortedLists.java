@@ -21,48 +21,27 @@ public class Solution {
         }
     };
 
-
-
     public ListNode mergeKLists(List<ListNode> lists) {  
         // write your code here
-
         if(lists==null || lists.size()==0){
             return null;
         }
-
         Queue<ListNode> queue = new PriorityQueue<ListNode>(lists.size(), ListNodeComparator);
-
         for(int i=0; i<lists.size(); i++){
-
             if(lists.get(i)!=null){
                 queue.offer(lists.get(i));
             }
-
         }
-
         ListNode dummy = new ListNode(-1);
-
         ListNode tail = dummy;
-
         while(!queue.isEmpty()){
-
             ListNode node = queue.poll();
-
             tail.next = node;
             tail = tail.next;
-
             if(node.next!=null){
                 queue.offer(node.next);
             }
-
-
-
-
         }
-
         return dummy.next;
-
-
-
     }
 }

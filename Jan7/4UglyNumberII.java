@@ -22,7 +22,7 @@ public class Solution {
 
         for(int i=1; i<n; i++){
 
-            number = queue.poll();
+            number = queue.poll(); // get min
 
             for(int j=0; j<3; j++){
 

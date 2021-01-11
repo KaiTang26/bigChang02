@@ -8,7 +8,7 @@ public class Solution_1 {
 
         int count = 1;
         int ans = 1;
-        Arrays.sort(num);
+        Arrays.sort(num); //O(nlogn)
         for(int i=0; i<=num.length-2; i++){
 
             if(num[i]+1==num[i+1]){
