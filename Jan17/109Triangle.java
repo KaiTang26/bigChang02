@@ -124,11 +124,6 @@ public class Solution_4 {
 
         int[][] hash = new int[h][h];
 
-        for(int i=0; i<h; i++){
-            for(int j=0; j<h; j++){
-                hash[i][j] = Integer.MAX_VALUE;
-            }
-        }
 
         for(int i=0; i<triangle[h-1].length; i++){
             hash[h-1][i]= triangle[h-1][i];
