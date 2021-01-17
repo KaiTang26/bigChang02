@@ -64,7 +64,7 @@ public class Solution_2 {
 }
 
 
-public class Solution_2 {
+public class Solution_3 {
     /**
      * @param triangle: a list of lists of integers
      * @return: An integer, minimum path sum
@@ -105,4 +105,46 @@ public class Solution_2 {
 
         return this.hash[x][y];
     }
+}
+
+
+
+public class Solution_4 {
+    /**
+     * @param triangle: a list of lists of integers
+     * @return: An integer, minimum path sum
+     */
+
+
+    public int minimumTotal(int[][] triangle) {
+
+       
+
+        int h = triangle.length;
+
+        int[][] hash = new int[h][h];
+
+        for(int i=0; i<h; i++){
+            for(int j=0; j<h; j++){
+                hash[i][j] = Integer.MAX_VALUE;
+            }
+        }
+
+        for(int i=0; i<triangle[h-1].length; i++){
+            hash[h-1][i]= triangle[h-1][i];
+        }
+
+
+        for(int i=h-2; i>=0; i--){
+            for(int j=0; j<triangle[i].length; j++){
+                hash[i][j]= Math.min(hash[i+1][j], hash[i+1][j+1])+triangle[i][j];
+            }
+        }
+
+        return hash[0][0];
+
+        
+    }
+
+    
 }
