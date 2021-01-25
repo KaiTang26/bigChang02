@@ -12,6 +12,7 @@ public class Solution {
         int xLen = grid.length;
         int yLen = grid[0].length;
 
+        // setup state pathSum at this point
         int[][] sum = new int[xLen][yLen];
 
 
