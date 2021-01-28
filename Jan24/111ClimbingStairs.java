@@ -24,7 +24,7 @@ public class Solution {
             pathCount[i] = pathCount[i-1]+pathCount[i-2];
         }
 
-        return pathCount[n];
+        return pathCount[n-1];
 
 
     }
